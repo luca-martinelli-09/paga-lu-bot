@@ -1,0 +1,28 @@
+{
+  "name": "paga-lu-bot",
+  "description": "Paga i tuoi amici in piadine, spritz e molto altro tramite Telegram!",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx tailwindcss -i public/css/main.raw.css -o public/css/main.css --minify",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luca-martinelli-09/paga-lu-bot.git"
+  },
+  "author": "Luca Martinelli",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/luca-martinelli-09/paga-lu-bot/issues"
+  },
+  "homepage": "https://github.com/luca-martinelli-09/paga-lu-bot#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mysql": "^2.18.1",
+    "node-telegram-bot-api": "^0.59.0",
+    "pug": "^3.0.2",
+    "tailwindcss": "^3.2.1"
+  }
+}

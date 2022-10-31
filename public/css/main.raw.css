@@ -1,0 +1,89 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  -webkit-tap-highlight-color: transparent;
+  @apply select-none;
+}
+
+body {
+  @apply font-body overflow-x-hidden;
+  background-color: var(--tg-theme-bg-color);
+  color: var(--tg-theme-text-color);
+}
+
+#loading {
+  background-color: var(--tg-theme-bg-color);
+}
+
+.asset-card {
+  @apply flex flex-col items-center gap-3 cursor-pointer rounded-2xl p-3 relative overflow-hidden;
+  background-color: var(--tg-theme-secondary-bg-color);
+}
+
+.user-card {
+  @apply flex flex-col text-sm p-4 gap-1 relative cursor-pointer;
+  background-color: var(--tg-theme-bg-color);
+}
+
+.mini-items .user-card {
+  @apply py-2;
+}
+
+.user-card.disabled {
+  @apply cursor-default;
+}
+
+.asset-card:before,
+.user-card:not(.disabled):before {
+  content: "";
+  @apply absolute inset-0 opacity-0 transition-opacity duration-300;
+  background-color: var(--tg-theme-hint-color);
+}
+
+.asset-card:active:before,
+.user-card:active:before {
+  @apply opacity-25;
+}
+
+.uc-sub {
+  @apply text-xs font-semibold;
+  color: var(--tg-theme-hint-color);
+}
+
+.hint {
+  color: var(--tg-theme-hint-color);
+}
+
+.screen {
+  @apply w-screen flex flex-col gap-5 fixed inset-0 overflow-auto left-full transition-all duration-300;
+  background-color: var(--tg-theme-bg-color);
+}
+
+.mini-gap {
+  @apply gap-2;
+}
+
+.screen.active {
+  @apply left-0;
+}
+
+.bg-secondary {
+  background-color: var(--tg-theme-secondary-bg-color);
+}
+
+.bg-primary {
+  background-color: var(--tg-theme-bg-color);
+}
+
+#receiver {
+  @apply bg-transparent outline-none py-4 px-4;
+  background-color: var(--tg-theme-bg-color);
+}
+
+.border-hint {
+  border-color: var(--tg-theme-hint-color);
+}
