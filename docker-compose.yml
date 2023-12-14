@@ -2,10 +2,28 @@ version: "3"
 
 services:
   pagalu:
-    container_name: pagalu
     build:
       context: .
     env_file:
       - .env
-    network_mode: "host"
+    ports:
+      - ${PORT:-3000}:3000
     restart: unless-stopped
+  
+  db:
+    image: mariadb:latest
+    environment:
+      MYSQL_DATABASE: ${DB_NAME:-app}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-root}
+    volumes:
+      - ./tmp/mariadb:/var/lib/mysql
+    networks:
+      - app
+  
+  adminer:
+    image: adminer
+    environment:
+        ADMINER_DESIGN: mvt
+        ADMINER_DEFAULT_SERVER: db
+    ports:
+        - ${ADMINER_PORT:-8080}:8080

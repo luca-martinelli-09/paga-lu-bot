@@ -181,4 +181,4 @@ app.use("/", (_, res) => {
   res.render("index");
 });
 
-httpServer.listen(config.server.port);
+httpServer.listen(3000);
