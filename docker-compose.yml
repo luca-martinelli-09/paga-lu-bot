@@ -17,8 +17,6 @@ services:
       MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-root}
     volumes:
       - ./tmp/mariadb:/var/lib/mysql
-    networks:
-      - app
   
   adminer:
     image: adminer
